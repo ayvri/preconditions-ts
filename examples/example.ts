@@ -1,6 +1,5 @@
-import { optional, Type } from "../";
+import { optionalNumber, optionalString } from '../';
 
-const test = { foo: "bar" };
-const foo = optional(test, "foo", Type.STRING);
-
-console.log(foo);
+const test = { foo: 'bar' };
+optionalString(test, 'foo'); // Maybe<string> (OK)
+optionalNumber(test, 'foo'); // Maybe<number> (THROWS)

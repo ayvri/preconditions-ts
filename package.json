@@ -9,11 +9,12 @@
   "devDependencies": {
     "alsatian": "^2.3.0",
     "embellish-readme": "^1.3.2",
+    "prettier": "^1.15.3",
     "typescript": "^3.2.1"
   },
   "scripts": {
     "pretest": "tsc",
-    "test": "alsatian ./test/*.spec.js",
+    "test": "alsatian --tap ./test/*.spec.js",
     "gendocs": "embellish README.md"
   },
   "stability": "unstable"

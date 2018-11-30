@@ -9,12 +9,11 @@ A WIP preconditions library for TypeScript.
 ## Examples
 
 ```ts
-import { optional, Type } from "preconditions-ts";
+import { optionalNumber, optionalString } from 'preconditions-ts';
 
-const test = { foo: "bar" };
-
-optional(test, "foo", Type.STRING); // Maybe<string>
-optional(test, "foo", Type.NUMBER); // Maybe<number> (will throw at runtime)
+const test = { foo: 'bar' };
+optionalString(test, 'foo'); // Maybe<string> (OK)
+optionalNumber(test, 'foo'); // Maybe<number> (THROWS)
 ```
 
 ## LICENSE
@@ -34,5 +33,3 @@ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
 WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-
