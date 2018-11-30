@@ -1,6 +1,6 @@
 {
   "name": "preconditions-ts",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Preconditions library for TypeScript",
   "main": "index.ts",
   "repository": "https://github.com/DamonOehlman/preconditions-ts.git",
