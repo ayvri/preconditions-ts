@@ -1,15 +1,9 @@
-declare type CheckedType = string | number | boolean | [];
-declare type Maybe<T extends CheckedType> = T | undefined | null;
-declare type TypeValidator<T extends CheckedType> = (val: any) => val is T;
-declare type DataSource = {
-    [key: string]: any;
-};
-export declare type Validator = TypeValidator<CheckedType>;
-export declare const Type: {
-    [key: string]: Validator;
-};
-export declare function optional<T extends CheckedType>(d: DataSource, key: string, validator: TypeValidator<T>): Maybe<T>;
-export declare function required<T extends CheckedType>(d: DataSource, key: string, validator: TypeValidator<T>): T;
-export declare const optionalNumber: (d: DataSource, key: string) => number;
+import { DataSource } from './core';
+export declare const optionalNumber: (d: DataSource, key: string) => number | null | undefined;
+export declare const optionalString: (d: DataSource, key: string) => string | null | undefined;
+export declare const optionalBoolean: (d: DataSource, key: string) => boolean | null | undefined;
+export declare const optionalArray: (d: DataSource, key: string) => [] | null | undefined;
 export declare const requiredNumber: (d: DataSource, key: string) => number;
-export {};
+export declare const requiredString: (d: DataSource, key: string) => string;
+export declare const requiredBoolean: (d: DataSource, key: string) => boolean;
+export declare const requiredArray: (d: DataSource, key: string) => [];
