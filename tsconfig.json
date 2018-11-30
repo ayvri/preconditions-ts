@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictNullChecks": true
+  },
+  "buildOnSave": false,
+  "compileOnSave": true,
+  "exclude": ["node_modules"],
+  "filesGlob": ["./**/*.ts"]
+}
