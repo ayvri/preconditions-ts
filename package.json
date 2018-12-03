@@ -15,7 +15,7 @@
   "scripts": {
     "compile": "tsc",
     "pretest": "tsc",
-    "prepublish": "tsc",
+    "prepare": "tsc",
     "test": "alsatian --tap ./test/*.spec.js",
     "gendocs": "embellish README.md"
   },
