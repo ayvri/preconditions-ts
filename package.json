@@ -16,7 +16,7 @@
     "compile": "tsc",
     "pretest": "tsc",
     "prepublish": "tsc",
-    "test": "alsatian --tap ./dist/test/*.spec.js",
+    "test": "alsatian --tap ./test/*.spec.js",
     "gendocs": "embellish README.md"
   },
   "stability": "unstable"
