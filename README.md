@@ -1,6 +1,6 @@
 # preconditions-ts
 
-A WIP preconditions library for TypeScript.
+A preconditions library for TypeScript.
 
 [![NPM](https://nodei.co/npm/preconditions-ts.png)](https://nodei.co/npm/preconditions-ts/)
 

@@ -21,23 +21,29 @@ export function optionalOfType<T extends CheckedType>(
   d: DataSource,
   key: string,
   validator: TypeValidator<T>,
+  errorMessage?: string,
 ): Maybe<T> {
   const value = d[key];
   if (value == null || validator(value)) {
     return value;
   }
 
-  throw new Error(`invalid type of value detected for ${key}`);
+  throw new Error(errorMessage || `invalid type of value detected for ${key}`);
 }
 
-export function requiredOfType<T extends CheckedType>(d: DataSource, key: string, validator: TypeValidator<T>): T {
+export function requiredOfType<T extends CheckedType>(
+  d: DataSource,
+  key: string,
+  validator: TypeValidator<T>,
+  errorMessage?: string,
+): T {
   const value = d[key];
   if (value == null) {
-    throw new Error(`value required for ${key}`);
+    throw new Error(errorMessage || `value required for ${key}`);
   }
 
   if (!validator(value)) {
-    throw new Error(`invalid type of value detected for ${key}`);
+    throw new Error(errorMessage || `invalid type of value detected for ${key}`);
   }
 
   return value;
