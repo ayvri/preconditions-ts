@@ -1,6 +1,5 @@
 import {
   DataSource,
-  TypeValidator,
   optionalOfType,
   requiredOfType,
   isNumber,
@@ -9,12 +8,50 @@ import {
   isArray,
 } from './core';
 
-export const optionalNumber = (d: DataSource, key: string) => optionalOfType(d, key, isNumber);
-export const optionalString = (d: DataSource, key: string) => optionalOfType(d, key, isString);
-export const optionalBoolean = (d: DataSource, key: string) => optionalOfType(d, key, isBoolean);
-export const optionalArray = (d: DataSource, key: string) => optionalOfType(d, key, isArray);
+export const optionalNumber = (
+  d: DataSource,
+  key: string,
+  errorMessage?: string
+) => optionalOfType(d, key, isNumber, errorMessage);
 
-export const requiredNumber = (d: DataSource, key: string) => requiredOfType(d, key, isNumber);
-export const requiredString = (d: DataSource, key: string) => requiredOfType(d, key, isString);
-export const requiredBoolean = (d: DataSource, key: string) => requiredOfType(d, key, isBoolean);
-export const requiredArray = (d: DataSource, key: string) => requiredOfType(d, key, isArray);
+export const optionalString = (
+  d: DataSource,
+  key: string,
+  errorMessage?: string
+) => optionalOfType(d, key, isString, errorMessage);
+
+export const optionalBoolean = (
+  d: DataSource,
+  key: string,
+  errorMessage?: string
+) => optionalOfType(d, key, isBoolean, errorMessage);
+
+export const optionalArray = (
+  d: DataSource,
+  key: string,
+  errorMessage?: string
+) => optionalOfType(d, key, isArray, errorMessage);
+
+export const requiredNumber = (
+  d: DataSource,
+  key: string,
+  errorMessage?: string
+) => requiredOfType(d, key, isNumber, errorMessage);
+
+export const requiredString = (
+  d: DataSource,
+  key: string,
+  errorMessage?: string
+) => requiredOfType(d, key, isString, errorMessage);
+
+export const requiredBoolean = (
+  d: DataSource,
+  key: string,
+  errorMessage?: string
+) => requiredOfType(d, key, isBoolean, errorMessage);
+
+export const requiredArray = (
+  d: DataSource,
+  key: string,
+  errorMessage?: string
+) => requiredOfType(d, key, isArray, errorMessage);
