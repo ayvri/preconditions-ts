@@ -1,5 +1,5 @@
 import { Expect as expect, Setup, Test, TestCase } from 'alsatian';
-import { optionalOfType, Type, Validator } from '../core';
+import { optionalOfType, requiredOfType, Type, Validator } from '../core';
 
 export class OptionalTypeValidationFixture {
   private testStructure: { [key: string]: any };
@@ -33,5 +33,13 @@ export class OptionalTypeValidationFixture {
     expect(() => {
       optionalOfType(this.testStructure, key, validator);
     }).toThrowError(Error, `invalid type of value detected for ${key}`);
+  }
+
+  @Test('optional, custom error')
+  @TestCase('test', Type.NUMBER, 'type was wrong')
+  public requiredCustomError(key: string, validator: Validator, errorMessage: string) {
+    expect(() => {
+      optionalOfType(this.testStructure, key, validator, errorMessage);
+    }).toThrowError(Error, errorMessage);
   }
 }

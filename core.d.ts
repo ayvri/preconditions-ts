@@ -12,6 +12,6 @@ export declare const isArray: TypeValidator<[]>;
 export declare const Type: {
     [key: string]: Validator;
 };
-export declare function optionalOfType<T extends CheckedType>(d: DataSource, key: string, validator: TypeValidator<T>): Maybe<T>;
-export declare function requiredOfType<T extends CheckedType>(d: DataSource, key: string, validator: TypeValidator<T>): T;
+export declare function optionalOfType<T extends CheckedType>(d: DataSource, key: string, validator: TypeValidator<T>, errorMessage?: string): Maybe<T>;
+export declare function requiredOfType<T extends CheckedType>(d: DataSource, key: string, validator: TypeValidator<T>, errorMessage?: string): T;
 export {};
