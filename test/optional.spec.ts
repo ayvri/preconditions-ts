@@ -1,5 +1,5 @@
 import { Expect as expect, Setup, Test, TestCase } from 'alsatian';
-import { optionalOfType, requiredOfType, Type, Validator } from '../core';
+import { optionalOfType, Type, Validator } from '../core';
 
 export class OptionalTypeValidationFixture {
   private testStructure: { [key: string]: any };

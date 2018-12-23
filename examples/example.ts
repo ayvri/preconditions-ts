@@ -1,5 +1,5 @@
-import { optionalNumber, optionalString } from '../';
+import { optionalNumberFrom, optionalStringFrom } from '../';
 
 const test = { foo: 'bar' };
-optionalString(test, 'foo'); // Maybe<string> (OK)
-optionalNumber(test, 'foo'); // Maybe<number> (THROWS)
+optionalStringFrom(test, 'foo'); // Maybe<string> (OK)
+optionalNumberFrom(test, 'foo'); // Maybe<number> (THROWS)

@@ -9,11 +9,11 @@ A preconditions library for TypeScript.
 ## Examples
 
 ```ts
-import { optionalNumber, optionalString } from 'preconditions-ts';
+import { optionalNumberFrom, optionalStringFrom } from 'preconditions-ts';
 
 const test = { foo: 'bar' };
-optionalString(test, 'foo'); // Maybe<string> (OK)
-optionalNumber(test, 'foo'); // Maybe<number> (THROWS)
+optionalStringFrom(test, 'foo'); // Maybe<string> (OK)
+optionalNumberFrom(test, 'foo'); // Maybe<number> (THROWS)
 ```
 
 ## LICENSE

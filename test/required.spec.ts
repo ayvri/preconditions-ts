@@ -16,7 +16,7 @@ export class RequiredTypeValidationFixture {
   public required(key: string, validator: Validator) {
     expect(() => {
       requiredOfType(this.testStructure, key, validator);
-    }).toThrowError(Error, `value required for ${key}`);
+    }).toThrowError(Error, `value required for key: ${key}`);
   }
 
   @Test('required of type, key found but type mismatch')
@@ -24,7 +24,7 @@ export class RequiredTypeValidationFixture {
   public requiredTypeMismatch(key: string, validator: Validator) {
     expect(() => {
       requiredOfType(this.testStructure, key, validator);
-    }).toThrowError(Error, `invalid type of value detected for ${key}`);
+    }).toThrowError(Error, `invalid type of value detected for key: ${key}`);
   }
 
   @Test('required of type, custom error')

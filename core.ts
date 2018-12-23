@@ -17,18 +17,41 @@ export const Type: { [key: string]: Validator } = {
   ARRAY: isArray,
 };
 
-export function optionalOfType<T extends CheckedType>(
-  d: DataSource,
-  key: string,
+export function optional<T extends CheckedType>(
+  value: any,
   validator: TypeValidator<T>,
-  errorMessage?: string,
+  errorMessage?: string
 ): Maybe<T> {
-  const value = d[key];
   if (value == null || validator(value)) {
     return value;
   }
 
-  throw new Error(errorMessage || `invalid type of value detected for ${key}`);
+  throw new Error(errorMessage || `invalid type of value detected`);
+}
+
+export function required<T extends CheckedType>(
+  value: any,
+  validator: TypeValidator<T>,
+  errorMessage?: string
+): T {
+  if (value == null) {
+    throw new Error(errorMessage ||'value required');
+  }
+
+  if (!validator(value)) {
+    throw new Error(errorMessage || 'invalid type of value');
+  }
+
+  return value;
+}
+
+export function optionalOfType<T extends CheckedType, DS extends {} = DataSource>(
+  d: DS,
+  key: keyof DS,
+  validator: TypeValidator<T>,
+  errorMessage?: string,
+): Maybe<T> {
+  return optional<T>(d[key], validator, errorMessage || `invalid type of value detected for ${key}`);
 }
 
 export function requiredOfType<T extends CheckedType>(
@@ -37,14 +60,17 @@ export function requiredOfType<T extends CheckedType>(
   validator: TypeValidator<T>,
   errorMessage?: string,
 ): T {
-  const value = d[key];
-  if (value == null) {
-    throw new Error(errorMessage || `value required for ${key}`);
+  try {
+    return required<T>(d[key], validator, errorMessage);
+  } catch (e) {
+    throw errorMessage ? e : (markedUpError(e, key) || e);
   }
+}
 
-  if (!validator(value)) {
-    throw new Error(errorMessage || `invalid type of value detected for ${key}`);
+function markedUpError(error: Error, key: string): Error | undefined {
+  if (error.message === 'value required') {
+    return new Error(`value required for key: ${key}`);
+  } else if (error.message === 'invalid type of value') {
+    return new Error(`invalid type of value detected for key: ${key}`);
   }
-
-  return value;
 }
