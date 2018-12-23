@@ -2,5 +2,5 @@ node_modules/
 
 *.js
 *.js.map
-*.spec.d.ts
+*.d.ts
 examples/*.d.ts
