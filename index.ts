@@ -55,7 +55,7 @@ export const optionalArrayFrom = (
 ) => optionalOfType(d, key, isArray, errorMessage);
 
 export const required = <T>(
-  value?: T,
+  value: T | undefined | null,
   errorMessage?: string,
 ): T => {
   if (value == null) {
