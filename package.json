@@ -3,12 +3,12 @@
   "version": "3.0.2",
   "description": "Preconditions library for TypeScript",
   "main": "index.js",
-  "repository": "https://github.com/DamonOehlman/preconditions-ts.git",
-  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
+  "repository": "https://github.com/ayvri/preconditions-ts.git",
+  "author": "Damon Oehlman <damon@ayvri.com>",
   "license": "ISC",
   "devDependencies": {
     "alsatian": "^2.3.0",
-    "embellish-readme": "^1.3.2",
+    "embellish-readme": "^1.5.0",
     "prettier": "^1.15.3",
     "typescript": "^3.2.1"
   },
@@ -19,5 +19,8 @@
     "test": "alsatian --tap ./test/*.spec.js",
     "gendocs": "embellish README.md"
   },
-  "stability": "unstable"
+  "stability": "unstable",
+  "embellish": {
+    "licenseHolder": "Ayvri Pty Ltd"
+  }
 }
