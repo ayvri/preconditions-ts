@@ -7,10 +7,10 @@
   "author": "Damon Oehlman <damon@ayvri.com>",
   "license": "ISC",
   "devDependencies": {
-    "alsatian": "^2.4.0",
-    "embellish-readme": "^1.5.0",
-    "prettier": "^1.15.3",
-    "typescript": "^3.2.1"
+    "alsatian": "^3.2.1",
+    "embellish-readme": "^1.7.2",
+    "prettier": "^2.1.1",
+    "typescript": "^4.0.2"
   },
   "scripts": {
     "compile": "tsc",
